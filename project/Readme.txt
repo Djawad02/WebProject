@@ -1,1 +1,1 @@
-This is a CRUD based react application
+This is a CRUD based react application.
