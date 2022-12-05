@@ -21,11 +21,21 @@ router.post('/register', async(req,res)=>{
           if(userExist){
             return res.status(422).json({ error : "Email already exits"});
            }
-         const user = new User({name, email,phone,work,password,cpassword});
-         await user.save();
 
-         res.status(201).json({message: "user registered successfully"});
 
+          else if(password != cpassword){
+            return res.status(422).json({ error : "Passwords not matching"});
+           }
+
+           else{
+            const user = new User({name, email,phone,work,password,cpassword});
+            await user.save();
+   
+            res.status(201).json({message: "user registered successfully"});
+   
+           }
+
+        
         }catch(err){
             console.log(err);
         }
@@ -43,17 +53,23 @@ return res.status(400).json({error: " Please fill in all the required data!!"})
   }
 
   const   userLogin= await User.findOne({email: email});
-  console.log(userLogin);
+  //console.log(userLogin);
 
-  if(!userLogin)
+  if(userLogin)
+{
+  if(userLogin.password!=password)
   {
-    res.status(400).json({ message : "ERROR!"});
+    res.status(400).json({ message : "ERROR!"});//password is wrong---------try if this works!!!!
   }
 
   else{
     res.json({ message : "Signed In Successfully!"});
   }
-  
+}
+else
+{
+  res.status(400).json({ message : "ERROR!"});  //email ghalat daali hogi
+}
   
 
 }
