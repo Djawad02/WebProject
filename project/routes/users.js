@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router();
-const User = require('./model/userSchema')
+const User = require('../model/userSchema')
 
 router.get('/', (req, res) => {
     res.send('Homepage');
@@ -31,4 +31,36 @@ router.post('/register', async(req,res)=>{
         }
         
 })
-module.exports = router;
+
+//login routing
+router.post('/signin',async (req,res) =>{
+
+try{
+  const {email,password}=req.body;
+
+  if (!email || !password){
+return res.status(400).json({error: " Please fill in all the required data!!"})
+  }
+
+  const   userLogin= await User.findOne({email: email});
+  console.log(userLogin);
+
+  if(!userLogin)
+  {
+    res.status(400).json({ message : "ERROR!"});
+  }
+
+  else{
+    res.json({ message : "Signed In Successfully!"});
+  }
+  
+  
+
+}
+catch(err){
+
+console.log(err);
+}
+
+});
+module.exports = router;  
