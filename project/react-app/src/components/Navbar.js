@@ -1,5 +1,7 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
+
 import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
@@ -9,7 +11,7 @@ const Navbar = () => {
   
 
   <div className="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul className="navbar-nav ml-auto">
+    <ul className="navbar-nav mr-auto">
       <li className="nav-item active">
         <NavLink className="nav-link" to="/">Home <span className="sr-only"></span></NavLink>
       </li>
