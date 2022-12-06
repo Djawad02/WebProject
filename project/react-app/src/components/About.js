@@ -1,37 +1,44 @@
 import React from 'react'
 import person from '../Images/person.png'
+import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
+//import '../App.css'
 
 const About = () => {
   return (
     <>
-      <div className="container emp-profile">
-        <form method="">
+    <div className="container emp-profile">
+    <form method="">
           <div className="row">
-              <div className="col-md-4">
-                  <img src={person} alt="not loaded" />
-              </div>
+    <Card className="text-center" style={{ width: '20rem' }}>
+      <Card.Img  src={person} alt="not loaded" />
+      <Card.Body>
+        <Card.Title>Profile View</Card.Title>
+        <Card.Text>
+        <p className='profile-rating mt-3 mb-5'>Rankings<span>1-10</span></p>
+        </Card.Text>
+      </Card.Body>
+      <ListGroup className="list-group-flush">
 
-              <div className="col-md-6">
-                  <div className="profile-head"></div>
-                  <h5>Profile View</h5>
-                  <h6>web developer</h6>
-                  <p className='profile-rating mt-3 mb-5'>Rankings<span>1-10</span></p>
+        <ListGroup.Item>1</ListGroup.Item>
+        <ListGroup.Item>2</ListGroup.Item>
+        <ListGroup.Item>3</ListGroup.Item>
+      </ListGroup>
+      <Card.Body>
+       
 
-                  <ul className="nav nav-tabs" role="tablist">
-                  <li className="nav-item">
-                    <a className="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
-                  </li>
-                  <li className="nav-item">
-                  <a className="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"  aria-selected="false">Timeline</a>
-                  </li>
-                </ul>
 
-              </div>
-          </div>
+      </Card.Body>
+    </Card>
+    </div>
         </form>
-      </div>
+    </div>
+    
+     
+     
     </>
   )
 }
 
 export default About
+
