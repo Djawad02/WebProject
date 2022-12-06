@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
-import signpic from "../images/logo192.png";
+import signpic from "../Images/login.png";
 
 const Signup = () => {
   return (
@@ -77,4 +77,3 @@ const Signup = () => {
 }
 
 export default Signup
-
