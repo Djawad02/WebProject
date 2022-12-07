@@ -7,10 +7,10 @@ router.get('/', (req, res) => {
     res.send('Homepage');
   })
 
-router.post('/register', async(req,res)=>{
-        const{name, email,phone,work,password,cpassword} = req.body;
+router.post('/signup', async(req,res)=>{
+        const{name, email,phone,profession,password,cpassword} = req.body;
 
-        if(!name || !email ||!phone || !work||!password||!cpassword){
+        if(!name || !email ||!phone || !profession||!password||!cpassword){
             return res.status(422).json({error:"Kindly fill all fields"})
         }
         // console.log(req.body);  //fetches everything written in textboxes
@@ -29,7 +29,7 @@ router.post('/register', async(req,res)=>{
            }
 
            else{
-            const user = new User({name, email,phone,work,password,cpassword});
+            const user = new User({name, email,phone,profession,password,cpassword});
             await user.save();
    
             res.status(201).json({message: "user registered successfully"});
@@ -44,7 +44,7 @@ router.post('/register', async(req,res)=>{
 })
 
 //login routing
-router.post('/signin',async (req,res) =>{
+router.post('/login',async (req,res) =>{
 
 try{
   let token;
@@ -93,3 +93,5 @@ console.log(err);
 
 });
 module.exports = router;  
+
+
